@@ -1,10 +1,11 @@
 import './App.css';
+import AppBar from './components/App Bar/AppBar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        hhh
+      <header >
+        <AppBar/>
       </header>
     </div>
   );
