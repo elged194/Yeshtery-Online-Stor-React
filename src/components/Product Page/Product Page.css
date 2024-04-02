@@ -1,0 +1,28 @@
+
+img{
+    width: 100%;
+}
+.product{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.product .product-img{
+    width: 50%;
+
+}
+.activ-img{
+    width: 100%;
+}
+.img-items{
+    width: 100%;
+
+}
+.img-items img{
+    width: 20%;
+}
+
+/* ----------about-prod -------- */
+.about-prod{
+    width: 50%;
+}
