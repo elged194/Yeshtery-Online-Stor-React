@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Product Page.css"
+import "./Product Page.css";
 
 const ProductPage = () => {
   const [images, setImages] = useState({
@@ -15,11 +15,7 @@ const ProductPage = () => {
   return (
     <div className="product">
       <div className="product-img">
-        <img
-          src={activeImg}
-          alt=""
-          className="activ-img"
-        />
+        <img src={activeImg} alt="" className="activ-img" />
 
         <div className="img-items">
           <img
@@ -50,40 +46,87 @@ const ProductPage = () => {
       </div>
       {/* ABOUT */}
       <div className="about-prod">
-        <div>
-          <span className=" ">
-            Special Sneaker
-          </span>
-          <h1 className="">Nike Invincible 3</h1>
+        <div style={{height:"50px"}}>
+          <img
+            src="https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png"
+            alt=""
+          />
         </div>
-        <p className="">
-          Con un'ammortizzazione incredibile per sostenerti in tutti i tuoi
-          chilometri, Invincible 3 offre un livello di comfort elevatissimo
-          sotto il piede per aiutarti a dare il massimo oggi, domani e oltre.
-          Questo modello incredibilmente elastico e sostenitivo, è pensato per
-          dare il massimo lungo il tuo percorso preferito e fare ritorno a casa
-          carico di energia, in attesa della prossima corsa.
+
+        <p className="fw-bold">
+          Adidas black t-shirt lorem ipsum dolor sit amet, consectetuer
+          adipiscing elit.
         </p>
-        <h6 className="text-2xl font-semibold">$ 199.00</h6>
-        <div className="flex flex-row items-center gap-12">
-          <div className="flex flex-row items-center">
+
+        <div className="star">
+          <div>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+
+          <span><b className="mr-2">4.9 Of 5</b> 22 Rates</span>
+        </div>
+
+        <div className="total">
+          {" "}
+          <h3  >9.999 LE</h3>
+           <p className="opacity-25 fw-bold">9.999 LE</p>
+          <p className="off-total">30% off</p>
+        </div>
+
+        <div className="size">
+          <h6>Size</h6>
+          <ul>
+            <li>Small</li>
+            <li>Meidum</li>
+            <li>Large</li>
+            <li>X Large</li>
+            <li>XX Large</li>
+          </ul>
+        </div>
+
+        <div className="color">
+          <h6>Color</h6>
+
+          <img
+            src="https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712085451/samples/Cart/Group_356_ruieeh.png"
+            alt=""
+          />
+          <img
+            src="https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712085451/samples/Cart/Group_354_dor5ta.png"
+            alt=""
+          />
+        </div>
+
+        <div className="quantity">
+          <h6>Quantity</h6>
+          <div className="">
             <button
-              className=""
+              className="prev-quantity"
               onClick={() => setAmount((prev) => prev - 1)}
             >
-              -
+              <i class="fa-solid fa-minus"></i>
             </button>
-            <span className="">{amount}</span>
+
+            <span style={{ padding: "5px 10px", fontWeight: "bold" }}>
+              {amount}
+            </span>
+
             <button
-              className=""
+              className="prev-quantity"
               onClick={() => setAmount((prev) => prev + 1)}
             >
-              +
+              <i class="fa-solid fa-plus"></i>
             </button>
           </div>
-          <button className="">
-            Add to Cart
-          </button>
+        </div>
+
+        <div className="btn-quantity">
+          <button style={{backgroundColor:"#542E90" , color:"#fff"}}>Add to Cart</button>
+          <button style={{backgroundColor:"#FFF200" , }}>Pickup From Store</button>
         </div>
       </div>
     </div>

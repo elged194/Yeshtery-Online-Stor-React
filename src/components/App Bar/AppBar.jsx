@@ -6,7 +6,7 @@ const AppBar = () => {
       <div className="top-bar">
         <div className="logo">
           <i class="fa-solid fa-bars-staggered"></i>
-          <img src="./Group769@2x.png" alt="yashtry" />
+          <img src="https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group769_2x_v8gbym.png" alt="yashtry" />
         </div>
         <div className="centr-top">
         Valentine’s Day Offers! Buy Two Get One Free <a href="/">Shop Now</a>
@@ -34,7 +34,7 @@ const AppBar = () => {
         </div>
 
         <div className="center-img">
-          <img src="./adidas.png" alt="adidas" />
+          <img src="https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/adidas_xt2b5n.png" alt="adidas" />
         </div>
 
         <div className="center-user">

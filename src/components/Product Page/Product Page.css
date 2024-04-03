@@ -2,17 +2,22 @@
 img{
     width: 100%;
 }
+h6{
+    font-weight: bold;
+}
+
+
 .product{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
 }
 .product .product-img{
     width: 50%;
 
 }
 .activ-img{
-    width: 100%;
+    width: inherit;
 }
 .img-items{
     width: 100%;
@@ -24,5 +29,76 @@ img{
 
 /* ----------about-prod -------- */
 .about-prod{
-    width: 50%;
+    width: 45%;
+    padding: 10px;
+    text-align: start;
+}
+.about-prod img{
+    width: auto;
+}
+.about-prod .star{
+    display: flex;
+    height: 30px;
+}
+.about-prod .star .fa-solid{
+    color: #FFB900;
+}
+.about-prod .star div{
+    margin-right: 10px;
+}
+.about-prod .total{
+    display: ruby;
+}
+.about-prod .total h3{
+    color: #542E90;
+    margin-right: 10px;
+}
+.about-prod .total .off-total{
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #FFF100;
+    margin-left: 10px;
+}
+.about-prod .size{
+    height: 75px;
+}
+.about-prod .size ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+}
+.about-prod .size ul li{
+    padding: 18px 5px;
+    background-color: #adb5bd;
+    border-radius: 50px;
+}
+.about-prod .prev-quantity{
+    padding: 5px 10px;
+    border: none;
+    background-color: #FFB900;
+    border-radius: 50%;
+}
+.about-prod .quantity div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+}
+.about-prod .btn-quantity{
+    height: 54px;
+    display: flex;
+    align-items: flex-end;
+}
+.about-prod .btn-quantity button{
+    width: 175px;
+    padding: 5px;
+    border-radius: 50px;
+    margin-right: 10px;
+border: none;
+}
+
+.color{
+    height: 125px;
 }
