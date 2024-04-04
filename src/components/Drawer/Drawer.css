@@ -1,0 +1,48 @@
+.cart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+ .close{
+text-align: end;
+padding: 5px;
+}
+.close .fa-solid{
+    font-size: 25px;
+    cursor: pointer;
+}
+.close .fa-solid:hover{
+    color: red;
+}
+.cart .total{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+.cart .total .remove{
+    border: none;
+    background-color: #FFF100;
+    padding: 0 8px;
+    border-radius: 9px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.sub-totale{
+    text-align: center;
+    margin: 10px 0;
+}
+.sub-totale div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.sub-totale button{
+    background-color: #FFF100;
+    color: black;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-weight: 500;
+    margin-top: 10px;
+}

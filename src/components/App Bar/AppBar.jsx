@@ -1,6 +1,19 @@
+import styled from "@emotion/styled";
 import "./AppBar.css";
+import { Badge } from "@mui/material";
+import { ShoppingBasketOutlined } from "@mui/icons-material";
 
-const AppBar = () => {
+const AppBar = ({ toggleDrawer }) => {
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      right: -4,
+      top: 3,
+      border: `2px solid #FFF100`,
+      padding: "0 4px",
+      backgroundColor:"#FFF100"
+    },
+  }));
+
   return (
     <div className="app-bar ">
       <div className="top-bar">
@@ -44,15 +57,14 @@ const AppBar = () => {
         </div>
 
         <div className="center-user">
+
           <div>
-            <a
-              href="0"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight"
-              aria-controls="offcanvasRight"
-            >
-              <i className="fa-solid fa-basket-shopping"></i> Cart
-            </a>
+            <button onClick={toggleDrawer(true)} className="quntty-cart">
+              <StyledBadge badgeContent={4} color="#FFF100">
+                <ShoppingBasketOutlined />
+              </StyledBadge>
+              Cart
+            </button>
           </div>
           <div>
             <i className="fa-regular fa-heart"></i> Wishlist

@@ -87,6 +87,14 @@ ul{
 .center-bar .center-img img{
     width: 80%;
 }
+.center-bar .quntty-cart{
+    width: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+    background-color: transparent;
+}
 /* ----- buttom-bar ---- */
 
 .buttom-bar{
