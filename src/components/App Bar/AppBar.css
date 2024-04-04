@@ -31,7 +31,13 @@ ul{
     width: 150px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+}
+.logo .fa-bars-staggered{
+    font-size: 25px;
+    margin-right: 15px;
+}
+.logo img{
+    width: 116px;
 }
 .icon-top{
     width: 350px;
@@ -62,6 +68,24 @@ ul{
     align-items: center;
     justify-content: space-between;
     width: 300px;
+}
+.centr-top a{
+    color: #000000;
+    font-weight: bold;
+}
+
+.center-bar .search-search input{
+    font-weight: bold;
+    border: none;
+    margin-left: 5px;
+    padding: 5px;
+    font-weight: bold;
+}
+.center-bar .search-search .fa-solid{
+    font-size: 20px;
+}
+.center-bar .center-img img{
+    width: 80%;
 }
 /* ----- buttom-bar ---- */
 

@@ -13,7 +13,7 @@ const ProductPage = () => {
 
   const [amount, setAmount] = useState(1);
   return (
-    <div className="product">
+    <div className="product container">
       <div className="product-img">
         <img src={activeImg} alt="" className="activ-img" />
 
@@ -60,11 +60,11 @@ const ProductPage = () => {
 
         <div className="star">
           <div>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+            <i className="fa-solid fa-star"></i>
+            <i className="fa-solid fa-star"></i>
+            <i className="fa-solid fa-star"></i>
+            <i className="fa-solid fa-star"></i>
+            <i className="fa-regular fa-star"></i>
           </div>
 
           <span><b className="mr-2">4.9 Of 5</b> 22 Rates</span>
@@ -86,6 +86,7 @@ const ProductPage = () => {
             <li>X Large</li>
             <li>XX Large</li>
           </ul>
+
         </div>
 
         <div className="color">
@@ -108,7 +109,7 @@ const ProductPage = () => {
               className="prev-quantity"
               onClick={() => setAmount((prev) => prev - 1)}
             >
-              <i class="fa-solid fa-minus"></i>
+              <i className="fa-solid fa-minus"></i>
             </button>
 
             <span style={{ padding: "5px 10px", fontWeight: "bold" }}>
@@ -119,7 +120,7 @@ const ProductPage = () => {
               className="prev-quantity"
               onClick={() => setAmount((prev) => prev + 1)}
             >
-              <i class="fa-solid fa-plus"></i>
+              <i className="fa-solid fa-plus"></i>
             </button>
           </div>
         </div>

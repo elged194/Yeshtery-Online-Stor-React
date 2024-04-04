@@ -1,6 +1,7 @@
 import './App.css';
 import AppBar from './components/App Bar/AppBar';
 import ProductPage from './components/Product Page/Product Page';
+import SimilarProducts from './components/Similar Products/Similar Products';
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
         <AppBar/>
       </header>
       <ProductPage/>
+      <SimilarProducts/>
+      
     </div>
   );
 }

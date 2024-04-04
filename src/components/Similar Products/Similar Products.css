@@ -1,0 +1,35 @@
+
+.Similar-Products .row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.Similar-Products .title-Products {
+    text-align: start;
+}
+
+.Similar-Products .star i {
+    color: #FFB900;
+}
+
+.Similar-Products .star {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.Similar-Products .total{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.Similar-Products .total .off-total{
+    background-color: #fff200;
+    opacity: 1;
+    padding: 0 3px;
+    border-radius: 5px;
+}
+.total h5{
+    color: #542e90;
+    font-weight: bold;
+    text-align: start;
+}
