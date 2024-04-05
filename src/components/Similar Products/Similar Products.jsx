@@ -1,6 +1,7 @@
 import "./Similar Products.css";
 
-const SimilarProducts = () => {
+const SimilarProducts = ({  newArr }) => {
+
   const Products = [
     {
       id: 1,
@@ -42,7 +43,12 @@ const SimilarProducts = () => {
       <div className="row">
         {Products.map((e) => {
           return (
-            <div className="card mb-4 p-0 " style={{ width: "18rem" }} key={e.id}>
+            <div
+              className="card mb-4 p-0 "
+              style={{ width: "18rem" }}
+              key={e.id}
+              onClick={newArr}
+            >
               <img src={e.img} alt="" />
               <div className="card-body">
                 <p className="card-text p-0" style={{ fontSize: "16px" }}>

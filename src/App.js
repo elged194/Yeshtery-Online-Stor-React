@@ -11,6 +11,16 @@ function App() {
     setOpen(newOpen);
   };
 
+  // --------------------------------------------------------------------------------------
+
+  // const newArr = Products.map((e ) => {
+
+  //   const productQuantity = { ...e };
+
+  //   return myCart.push(productQuantity);
+  // });
+  // ----------------------------------------------------------------------------
+
   const [open, setOpen] = useState(false);
 
   return (
