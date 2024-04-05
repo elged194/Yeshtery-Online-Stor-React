@@ -3,14 +3,17 @@ import "./AppBar.css";
 import { Badge } from "@mui/material";
 import { ShoppingBasketOutlined } from "@mui/icons-material";
 
-const AppBar = ({ toggleDrawer }) => {
+const AppBar = ({ toggleDrawer, myCart }) => {
+  
+
+
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       right: -4,
       top: 3,
       border: `2px solid #FFF100`,
       padding: "0 4px",
-      backgroundColor:"#FFF100"
+      backgroundColor: "#FFF100",
     },
   }));
 
@@ -57,10 +60,9 @@ const AppBar = ({ toggleDrawer }) => {
         </div>
 
         <div className="center-user">
-
           <div>
             <button onClick={toggleDrawer(true)} className="quntty-cart">
-              <StyledBadge badgeContent={4} color="#FFF100">
+              <StyledBadge badgeContent={myCart.length} color="#FFF100">
                 <ShoppingBasketOutlined />
               </StyledBadge>
               Cart

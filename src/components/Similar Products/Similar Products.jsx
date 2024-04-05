@@ -1,37 +1,6 @@
 import "./Similar Products.css";
 
-const SimilarProducts = ({ newArr }) => {
-  const Products = [
-    {
-      id: 1,
-      img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022134/samples/Cart/Group_575_2x_ip8qqj.png",
-      discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-      total: 9.999 + "LE",
-      logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
-    },
-    {
-      id: 2,
-      img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_583_2x_f7cfz6.png",
-      discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-      total: 9.999 + "LE",
-      logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
-    },
-    {
-      id: 3,
-      img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022135/samples/Cart/Group_589_2x_udgubi.png",
-      discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-      total: 9.999 + "LE",
-      logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
-    },
-    {
-      id: 4,
-      img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_597_2x_sjmkzz.png",
-      discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-      total: 9.999 + "LE",
-      logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
-    },
-  ];
-
+const SimilarProducts = ({ newArr, Products }) => {
   return (
     <section className="container Similar-Products">
       <div className="title-Products">
@@ -40,13 +9,12 @@ const SimilarProducts = ({ newArr }) => {
       </div>
 
       <div className="row">
-        {Products.map((e) => {
+        {Products.map((e, index) => {
           return (
             <div
               className="card mb-4 p-0 "
               style={{ width: "18rem" }}
               key={e.id}
-              onClick={newArr}
             >
               <img src={e.img} alt="" />
               <div className="card-body">
@@ -82,6 +50,7 @@ const SimilarProducts = ({ newArr }) => {
                 <p>
                   Pickup From: <b>Genena Mall</b>
                 </p>
+                <button onClick={() => newArr(index)}>add</button>
               </div>
             </div>
           );

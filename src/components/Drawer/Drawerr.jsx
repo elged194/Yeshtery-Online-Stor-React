@@ -1,10 +1,7 @@
 import { Box, Divider, Drawer, List, Typography } from "@mui/material";
 import "./Drawer.css";
 
-const Drawerr = ({ toggleDrawer, open }) => {
-
-  const myCart = [];
-
+const Drawerr = ({ toggleDrawer, open, myCart }) => {
   const DrawerList = (
     <Box
       sx={{ width: 350, m: "5px 15px" }}
@@ -12,7 +9,7 @@ const Drawerr = ({ toggleDrawer, open }) => {
       onClick={toggleDrawer(false)}
     >
       <div className="close">
-        <i onClick={toggleDrawer(false)} class="fa-solid fa-xmark"></i>
+        <i onClick={toggleDrawer(false)} className="fa-solid fa-xmark"></i>
       </div>
       <Typography
         variant="h5"
@@ -30,15 +27,11 @@ const Drawerr = ({ toggleDrawer, open }) => {
 
       <p className=" fw-bold ms-3">Cart Summary</p>
 
-      {myCart.map((e) => {
-        return (
-          <List>
+      <List>
+        {myCart.map((e) => {
+          return (
             <div className="card cart p-1 mb-3">
-              <img
-                src={e.img}
-                alt=""
-                style={{ width: "85px" }}
-              />
+              <img src={e.img} alt="" style={{ width: "85px" }} />
 
               <div className="card-body p-0 ps-2">
                 <p>{e.discripshn}</p>
@@ -53,19 +46,19 @@ const Drawerr = ({ toggleDrawer, open }) => {
                 </div>
               </div>
             </div>
-
-            <div className="sub-totale">
-              <h5>Total: 19.999 EL</h5>
-              <div>
-                <button>Review Cart</button>
-                <button style={{ backgroundColor: "#542E90", color: "#fff" }}>
-                  Compelete Checkout
-                </button>
-              </div>
-            </div>
-          </List>
-        );
-      })}
+          );
+        })}
+        
+        <div className="sub-totale">
+          <h5>Total: 19.999 EL</h5>
+          <div>
+            <button>Review Cart</button>
+            <button style={{ backgroundColor: "#542E90", color: "#fff" }}>
+              Compelete Checkout
+            </button>
+          </div>
+        </div>
+      </List>
     </Box>
   );
 
