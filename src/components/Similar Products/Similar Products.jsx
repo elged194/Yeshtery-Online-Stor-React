@@ -1,7 +1,6 @@
 import "./Similar Products.css";
 
-const SimilarProducts = ({  newArr }) => {
-
+const SimilarProducts = ({ newArr }) => {
   const Products = [
     {
       id: 1,
