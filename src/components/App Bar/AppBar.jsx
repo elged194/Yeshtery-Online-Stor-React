@@ -2,10 +2,15 @@ import styled from "@emotion/styled";
 import "./AppBar.css";
 import { Badge } from "@mui/material";
 import { ShoppingBasketOutlined } from "@mui/icons-material";
+// import { useState } from "react";
 
-const AppBar = ({ toggleDrawer, myCart }) => {
+const AppBar = ({ toggleDrawer, myCart , quantity}) => {
   
-
+  // setquantity(myCart.length)
+  // const updateQuantity = ()=>{
+  //   setquantity(myCart.length)
+  // }
+  
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {

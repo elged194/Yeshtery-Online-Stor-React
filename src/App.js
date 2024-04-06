@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import AppBar from "./components/App Bar/AppBar";
 import Drawerr from "./components/Drawer/Drawerr";
@@ -42,12 +42,26 @@ function App() {
     },
   ];
 
+  const [myCart , setmyCart] = useState([]);
 
-  const [myCart] = useState([]);
+  // const [quantity ,setquantity] = useState(0);
+
   // --------------------------------------------------------------------------------------
 
-  const newArr = (index) => {
+  const addToCart = (index) => {
     return myCart.push(Products[index]);
+  };
+
+  // const removeItem = () => {
+  //   const newArr = myCart.filter((e) => {
+  //     return e.id !== myCart.id;
+  //   });
+  //   // eslint-disable-next-line no-const-assign
+  //   myCart = newArr;
+  // };
+
+  const removeItem = (id) => {
+    setmyCart(myCart.filter(item => item.id !== id));
   };
 
   // ----------------------------------------------------------------------------
@@ -62,9 +76,9 @@ function App() {
 
       <ProductPage />
 
-      <SimilarProducts Products={Products} newArr={newArr} />
+      <SimilarProducts Products={Products} addToCart={addToCart} />
 
-      <Drawerr toggleDrawer={toggleDrawer} open={open} myCart={myCart} />
+      <Drawerr toggleDrawer={toggleDrawer} open={open} myCart={myCart} removeItem={removeItem}/>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import "./Similar Products.css";
 
-const SimilarProducts = ({ newArr, Products }) => {
+const SimilarProducts = ({ addToCart, Products }) => {
   return (
     <section className="container Similar-Products">
       <div className="title-Products">
@@ -50,7 +50,9 @@ const SimilarProducts = ({ newArr, Products }) => {
                 <p>
                   Pickup From: <b>Genena Mall</b>
                 </p>
-                <button onClick={() => newArr(index)}>add</button>
+                <button onClick={() =>{ addToCart(index)
+                
+                }}>add</button>
               </div>
             </div>
           );

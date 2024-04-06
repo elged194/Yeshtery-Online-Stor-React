@@ -1,12 +1,12 @@
 import { Box, Divider, Drawer, List, Typography } from "@mui/material";
 import "./Drawer.css";
 
-const Drawerr = ({ toggleDrawer, open, myCart }) => {
+const Drawerr = ({ toggleDrawer, open, myCart, removeItem }) => {
   const DrawerList = (
     <Box
       sx={{ width: 350, m: "5px 15px" }}
       role="presentation"
-      onClick={toggleDrawer(false)}
+      // onClick={toggleDrawer(false)}
     >
       <div className="close">
         <i onClick={toggleDrawer(false)} className="fa-solid fa-xmark"></i>
@@ -42,13 +42,15 @@ const Drawerr = ({ toggleDrawer, open, myCart }) => {
 
                 <div className="total ">
                   <h6 style={{ color: "#542E90" }}>9.999 EL</h6>
-                  <button className="remove">Remove</button>
+                  <button className="remove" onClick={() => removeItem(e.id)}>
+                    Remove
+                  </button>
                 </div>
               </div>
             </div>
           );
         })}
-        
+
         <div className="sub-totale">
           <h5>Total: 19.999 EL</h5>
           <div>
@@ -64,7 +66,7 @@ const Drawerr = ({ toggleDrawer, open, myCart }) => {
 
   return (
     <div>
-      <Drawer anchor={"right"} open={open} onClose={toggleDrawer(false)}>
+      <Drawer anchor={"right"} open={open} onClose={toggleDrawer(false) }  >
         {DrawerList}
       </Drawer>
     </div>

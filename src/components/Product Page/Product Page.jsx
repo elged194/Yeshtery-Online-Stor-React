@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Product Page.css";
 
 const ProductPage = () => {
-  const [images, setImages] = useState({
+  const [images] = useState({
     img1: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/3396ee3c-08cc-4ada-baa9-655af12e3120/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
     img2: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
     img3: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/44fc74b6-0553-4eef-a0cc-db4f815c9450/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
@@ -46,7 +46,7 @@ const ProductPage = () => {
       </div>
       {/* ABOUT */}
       <div className="about-prod">
-        <div style={{height:"50px"}}>
+        <div style={{ height: "50px" }}>
           <img
             src="https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png"
             alt=""
@@ -67,13 +67,15 @@ const ProductPage = () => {
             <i className="fa-regular fa-star"></i>
           </div>
 
-          <span><b className="mr-2">4.9 Of 5</b> 22 Rates</span>
+          <span>
+            <b className="mr-2">4.9 Of 5</b> 22 Rates
+          </span>
         </div>
 
         <div className="total">
           {" "}
-          <h3  >9.999 LE</h3>
-           <p className="opacity-25 fw-bold">9.999 LE</p>
+          <h3>{amount * 9.99}</h3>
+          <p className="opacity-25 fw-bold">9.999 LE</p>
           <p className="off-total">30% off</p>
         </div>
 
@@ -86,7 +88,6 @@ const ProductPage = () => {
             <li>X Large</li>
             <li>XX Large</li>
           </ul>
-
         </div>
 
         <div className="color">
@@ -107,7 +108,11 @@ const ProductPage = () => {
           <div className="">
             <button
               className="prev-quantity"
-              onClick={() => setAmount((prev) => prev - 1)}
+              onClick={() => {setAmount((prev) => prev - 1)
+              if(amount <= 0){
+                setAmount(0)
+              }
+              }}
             >
               <i className="fa-solid fa-minus"></i>
             </button>
@@ -126,8 +131,12 @@ const ProductPage = () => {
         </div>
 
         <div className="btn-quantity">
-          <button style={{backgroundColor:"#542E90" , color:"#fff"}}>Add to Cart</button>
-          <button style={{backgroundColor:"#FFF200" , }}>Pickup From Store</button>
+          <button style={{ backgroundColor: "#542E90", color: "#fff" }}>
+            Add to Cart
+          </button>
+          <button style={{ backgroundColor: "#FFF200" }}>
+            Pickup From Store
+          </button>
         </div>
       </div>
     </div>
