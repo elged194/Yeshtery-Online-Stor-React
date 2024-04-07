@@ -1,6 +1,8 @@
+import { ShoppingCart } from "@mui/icons-material";
 import "./Similar Products.css";
+import { ListItemIcon } from "@mui/material";
 
-const SimilarProducts = ({ addToCart, Products }) => {
+const SimilarProducts = ({ addToCart, Products ,myCart , setquantity}) => {
   return (
     <section className="container Similar-Products">
       <div className="title-Products">
@@ -47,12 +49,23 @@ const SimilarProducts = ({ addToCart, Products }) => {
                   </span>
                 </div>
 
-                <p>
-                  Pickup From: <b>Genena Mall</b>
-                </p>
-                <button onClick={() =>{ addToCart(index)
-                
-                }}>add</button>
+                <div className="add-cart">
+                  <p>
+                    Pickup From: <b>Genena Mall</b>
+                  </p>
+
+                  <ListItemIcon sx={{justifyContent: "flex-end"}}>
+                    <ShoppingCart
+                    className="icon"
+                      onClick={() => {
+                        addToCart(index);
+                        setquantity(myCart.length)
+                      }}
+                    
+                    />
+                  </ListItemIcon>
+                </div>
+
               </div>
             </div>
           );

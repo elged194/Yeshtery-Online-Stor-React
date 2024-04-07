@@ -2,15 +2,8 @@ import styled from "@emotion/styled";
 import "./AppBar.css";
 import { Badge } from "@mui/material";
 import { ShoppingBasketOutlined } from "@mui/icons-material";
-// import { useState } from "react";
 
-const AppBar = ({ toggleDrawer, myCart , quantity}) => {
-  
-  // setquantity(myCart.length)
-  // const updateQuantity = ()=>{
-  //   setquantity(myCart.length)
-  // }
-  
+const AppBar = ({ toggleDrawer, quantity }) => {
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
@@ -37,15 +30,12 @@ const AppBar = ({ toggleDrawer, myCart , quantity}) => {
         </div>
         <div className="icon-top">
           <div>
-            {" "}
             <i className="fa-solid fa-phone-volume"></i> Contact Us{" "}
           </div>
           <div>
-            {" "}
             <i className="fa-solid fa-cart-shopping"></i> Track Order
           </div>
           <div>
-            {" "}
             <i className="fa-solid fa-location-dot"></i> Find A Store
           </div>
         </div>
@@ -67,7 +57,7 @@ const AppBar = ({ toggleDrawer, myCart , quantity}) => {
         <div className="center-user">
           <div>
             <button onClick={toggleDrawer(true)} className="quntty-cart">
-              <StyledBadge badgeContent={myCart.length} color="#FFF100">
+              <StyledBadge badgeContent={quantity} color="#FFF100">
                 <ShoppingBasketOutlined />
               </StyledBadge>
               Cart

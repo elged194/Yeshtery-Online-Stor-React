@@ -42,26 +42,17 @@ function App() {
     },
   ];
 
-  const [myCart , setmyCart] = useState([]);
-
-  // const [quantity ,setquantity] = useState(0);
+  const [myCart, setmyCart] = useState([]);
 
   // --------------------------------------------------------------------------------------
+  const [quantity, setquantity] = useState(0);
 
   const addToCart = (index) => {
     return myCart.push(Products[index]);
   };
 
-  // const removeItem = () => {
-  //   const newArr = myCart.filter((e) => {
-  //     return e.id !== myCart.id;
-  //   });
-  //   // eslint-disable-next-line no-const-assign
-  //   myCart = newArr;
-  // };
-
   const removeItem = (id) => {
-    setmyCart(myCart.filter(item => item.id !== id));
+    setmyCart(myCart.filter((item) => item.id !== id));
   };
 
   // ----------------------------------------------------------------------------
@@ -71,14 +62,28 @@ function App() {
   return (
     <div className="App ">
       <header>
-        <AppBar toggleDrawer={toggleDrawer} myCart={myCart} />
+        <AppBar
+          toggleDrawer={toggleDrawer}
+          myCart={myCart}
+          quantity={quantity}
+        />
       </header>
 
       <ProductPage />
 
-      <SimilarProducts Products={Products} addToCart={addToCart} />
+      <SimilarProducts
+        Products={Products}
+        addToCart={addToCart}
+        setquantity={setquantity}
+        myCart={myCart}
+      />
 
-      <Drawerr toggleDrawer={toggleDrawer} open={open} myCart={myCart} removeItem={removeItem}/>
+      <Drawerr
+        toggleDrawer={toggleDrawer}
+        open={open}
+        myCart={myCart}
+        removeItem={removeItem}
+      />
     </div>
   );
 }
