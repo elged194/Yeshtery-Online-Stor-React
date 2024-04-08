@@ -14,17 +14,25 @@ h6{
 }
 .product .product-img{
     width: 50%;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+
 .activ-img{
+    /* width: 60%; */
     width: inherit;
 }
 .img-items{
     width: 100%;
-
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .img-items img{
     width: 20%;
+    cursor: pointer;
 }
 
 /* ----------about-prod -------- */

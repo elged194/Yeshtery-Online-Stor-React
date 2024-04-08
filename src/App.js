@@ -4,6 +4,7 @@ import AppBar from "./components/App Bar/AppBar";
 import Drawerr from "./components/Drawer/Drawerr";
 import ProductPage from "./components/Product Page/Product Page";
 import SimilarProducts from "./components/Similar Products/Similar Products";
+import Snackbar from "./components/Snackbar Toast/Snackbar";
 
 function App() {
   //  State for the drawer and product page visibility
@@ -42,10 +43,10 @@ function App() {
     },
   ];
 
-  const [myCart, setmyCart] = useState([]);
+  const [myCart, setmyCart] = useState([]); //  cart is empty initially
 
   // --------------------------------------------------------------------------------------
-  const [quantity, setquantity] = useState(0);
+  let quantity = myCart.length; //  Quantity of items in cart
 
   const addToCart = (index) => {
     return myCart.push(Products[index]);
@@ -55,35 +56,48 @@ function App() {
     setmyCart(myCart.filter((item) => item.id !== id));
   };
 
+  // ---------------
+  const [show, setshow] = useState(""); //  Show SnackBar => Add to Cart
+
+  const showSnackbar = () => {
+    setshow("show");
+
+    setTimeout(() => {
+      setshow("");
+    }, 3000);
+  };
+
   // ----------------------------------------------------------------------------
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); //  Drawerr Open  for Edit Item
 
   return (
     <div className="App ">
       <header>
         <AppBar
-          toggleDrawer={toggleDrawer}
-          myCart={myCart}
-          quantity={quantity}
+          toggleDrawer={toggleDrawer} // Function Open The Drawerr
+          myCart={myCart} //  My Cart Items
+          quantity={quantity} // Quantity Of Items In Cart
         />
       </header>
 
       <ProductPage />
 
       <SimilarProducts
-        Products={Products}
-        addToCart={addToCart}
-        setquantity={setquantity}
-        myCart={myCart}
+        Products={Products} //  All Products Items
+        addToCart={addToCart} // Function For Add items To Cart
+        showSnackbar={showSnackbar} //  Function For Showing SnackBar After Adding In Cart
       />
 
       <Drawerr
-        toggleDrawer={toggleDrawer}
-        open={open}
-        myCart={myCart}
-        removeItem={removeItem}
+        toggleDrawer={toggleDrawer} //  Function Close The Drawerr
+        open={open} // State of Drawerr
+        myCart={myCart} //   My Cart Items From Above
+        removeItem={removeItem} //  Function For Remov Item From Cart
       />
+
+      <Snackbar showSnackbar={showSnackbar} show={show} />
+      
     </div>
   );
 }
