@@ -2,6 +2,8 @@ import { Box, Divider, Drawer, List, Typography } from "@mui/material";
 import "./Drawer.css";
 
 const Drawerr = ({ toggleDrawer, open, myCart, removeItem }) => {
+  let subTotal = 0; // Sub Totale
+
   const DrawerList = (
     <Box
       sx={{ width: 350, m: "5px 15px" }}
@@ -29,6 +31,8 @@ const Drawerr = ({ toggleDrawer, open, myCart, removeItem }) => {
 
       <List>
         {myCart.map((e) => {
+           subTotal += e.total
+
           return (
             <div className="card cart p-1 mb-3">
               <img src={e.img} alt="" style={{ width: "85px" }} />
@@ -41,7 +45,7 @@ const Drawerr = ({ toggleDrawer, open, myCart, removeItem }) => {
                 </p>
 
                 <div className="total ">
-                  <h6 style={{ color: "#542E90" }}>9.999 EL</h6>
+                  <h6 style={{ color: "#542E90" }}>{e.total} EL</h6>
                   <button className="remove" onClick={() => removeItem(e.id)}>
                     Remove
                   </button>
@@ -52,7 +56,7 @@ const Drawerr = ({ toggleDrawer, open, myCart, removeItem }) => {
         })}
 
         <div className="sub-totale">
-          <h5>Total: 19.999 EL</h5>
+          <h5>Total: {subTotal} EL</h5>
           <div>
             <button>Review Cart</button>
             <button style={{ backgroundColor: "#542E90", color: "#fff" }}>

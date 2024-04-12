@@ -11,3 +11,63 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* -------------------------------------------------------------------------------------- */
+
+/* ==============
+  footer
+=================*/
+footer{
+  background-color: #3C3C3B;
+  color: #fff;
+  padding: 20px 0 10px 0px;
+  margin-top: 50px;
+}
+.search-label{
+  width: 75%;
+  background-color: aliceblue;
+  display: flex;
+  position: relative;
+  border-radius: 50%;
+}
+.search-label input{
+  width: 100%;
+  padding: 5px;
+  border-radius: 50px;
+  border: none;
+}
+.search-label .send-footer{
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  background-color: #ffb900;
+  padding: 3px 17px;
+  border-radius: 50px;
+}
+.search-label .fa-regular{
+  font-size: 19px;
+  padding-left: 4px;
+}
+footer .list-footer{
+  list-style: none;
+}
+footer .list-footer li{
+  font-weight: bold;
+
+}
+footer .list-footer-2{
+  list-style: none;
+}
+footer .list-footer-2 li{
+  margin: 6px 0;
+}
+footer .list-footer-2 .fa-brands{
+  font-size: 18px;
+  background-color: #c58f00;
+  padding: 3px;
+  border-radius: 5px;
+}
+footer .end-footer img{
+  height: 40px;
+  margin: 0 5px;
+}

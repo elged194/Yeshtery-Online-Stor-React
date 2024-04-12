@@ -5,6 +5,7 @@ import Drawerr from "./components/Drawer/Drawerr";
 import ProductPage from "./components/Product Page/Product Page";
 import SimilarProducts from "./components/Similar Products/Similar Products";
 import Snackbar from "./components/Snackbar Toast/Snackbar";
+import Footer from "./components/footer";
 
 function App() {
   //  State for the drawer and product page visibility
@@ -17,28 +18,28 @@ function App() {
       id: 1,
       img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022134/samples/Cart/Group_575_2x_ip8qqj.png",
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-      total: 9.999 + "LE",
+      total: 10.99,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
     },
     {
       id: 2,
       img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_583_2x_f7cfz6.png",
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-      total: 9.999 + "LE",
+      total: 12.99,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
     },
     {
       id: 3,
       img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022135/samples/Cart/Group_589_2x_udgubi.png",
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-      total: 9.999 + "LE",
+      total: 9.99,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
     },
     {
       id: 4,
       img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_597_2x_sjmkzz.png",
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-      total: 9.999 + "LE",
+      total: 11.99,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
     },
   ];
@@ -48,8 +49,10 @@ function App() {
   // --------------------------------------------------------------------------------------
   let quantity = myCart.length; //  Quantity of items in cart
 
-  const addToCart = (index) => {
-    return myCart.push(Products[index]);
+  const addToCart = (index, id) => {
+    if (myCart.includes(id)) {
+      myCart.push(Products[index]);
+    }
   };
 
   const removeItem = (id) => {
@@ -94,10 +97,12 @@ function App() {
         open={open} // State of Drawerr
         myCart={myCart} //   My Cart Items From Above
         removeItem={removeItem} //  Function For Remov Item From Cart
+        quantity={quantity}
       />
 
       <Snackbar showSnackbar={showSnackbar} show={show} />
-      
+
+      <Footer />
     </div>
   );
 }

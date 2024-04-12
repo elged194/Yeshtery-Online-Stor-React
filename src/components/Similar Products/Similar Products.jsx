@@ -58,7 +58,7 @@ const SimilarProducts = ({ addToCart, Products ,showSnackbar}) => {
                     <ShoppingCart
                       className="icon"
                       onClick={() => {
-                        addToCart(index);
+                        addToCart(index , e.id);
                         showSnackbar()
                       }}
                     />
