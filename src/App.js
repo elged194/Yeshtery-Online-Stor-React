@@ -20,6 +20,7 @@ function App() {
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
       total: 10.99,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
+      
     },
     {
       id: 2,
@@ -50,9 +51,11 @@ function App() {
   let quantity = myCart.length; //  Quantity of items in cart
 
   const addToCart = (index, id) => {
-    if (myCart.includes(id)) {
-      myCart.push(Products[index]);
-    }
+    // if (myCart.filter((item) => item.id !== id)) {
+    //   myCart.push(Products[index]);
+    // }
+
+    myCart.push(Products[index]);
   };
 
   const removeItem = (id) => {
@@ -90,6 +93,7 @@ function App() {
         Products={Products} //  All Products Items
         addToCart={addToCart} // Function For Add items To Cart
         showSnackbar={showSnackbar} //  Function For Showing SnackBar After Adding In Cart
+        myCart={myCart}
       />
 
       <Drawerr
