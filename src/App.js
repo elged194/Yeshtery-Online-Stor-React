@@ -13,6 +13,7 @@ function App() {
     setOpen(newOpen);
   };
 
+  // array of products
   const Products = [
     {
       id: 1,
@@ -20,7 +21,11 @@ function App() {
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
       total: 10.99,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
-      
+
+      img1: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022134/samples/Cart/Group_575_2x_ip8qqj.png",
+      img2: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_583_2x_f7cfz6.png",
+      img3: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022135/samples/Cart/Group_589_2x_udgubi.png",
+      img4: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_597_2x_sjmkzz.png",
     },
     {
       id: 2,
@@ -28,6 +33,11 @@ function App() {
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
       total: 12.99,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
+
+      img1: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_583_2x_f7cfz6.png",
+      img2: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022134/samples/Cart/Group_575_2x_ip8qqj.png",
+      img3: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022135/samples/Cart/Group_589_2x_udgubi.png",
+      img4: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_597_2x_sjmkzz.png",
     },
     {
       id: 3,
@@ -35,6 +45,11 @@ function App() {
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
       total: 9.99,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
+
+      img1: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022135/samples/Cart/Group_589_2x_udgubi.png",
+      img2: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022134/samples/Cart/Group_575_2x_ip8qqj.png",
+      img3: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_583_2x_f7cfz6.png",
+      img4: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_597_2x_sjmkzz.png",
     },
     {
       id: 4,
@@ -42,6 +57,11 @@ function App() {
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
       total: 11.99,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
+
+      img1: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_597_2x_sjmkzz.png",
+      img2: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022134/samples/Cart/Group_575_2x_ip8qqj.png",
+      img3: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_583_2x_f7cfz6.png",
+      img4: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022135/samples/Cart/Group_589_2x_udgubi.png",
     },
   ];
 
@@ -50,7 +70,8 @@ function App() {
   // --------------------------------------------------------------------------------------
   let quantity = myCart.length; //  Quantity of items in cart
 
-  const addToCart = (index, id) => {
+  //  Add to cart
+  const addToCart = (index) => {
     // if (myCart.filter((item) => item.id !== id)) {
     //   myCart.push(Products[index]);
     // }
@@ -58,6 +79,18 @@ function App() {
     myCart.push(Products[index]);
   };
 
+  const [imagesProduct, setimagesProduct] = useState(Products[0]); //  set the product to show
+
+  const [activeImg, setActiveImage] = useState(imagesProduct.img); //  set the image to show
+
+  //  Add to Product Show
+  const AddToProductShow = (index) => {
+    setimagesProduct(Products[index]); // set the product to show
+
+    setActiveImage(Products[index].img); // set the image to show
+  };
+
+  //  Remove Item from Cart
   const removeItem = (id) => {
     setmyCart(myCart.filter((item) => item.id !== id));
   };
@@ -65,6 +98,7 @@ function App() {
   // ---------------
   const [show, setshow] = useState(""); //  Show SnackBar => Add to Cart
 
+  //  Show SnackBar => Add to Cart
   const showSnackbar = () => {
     setshow("show");
 
@@ -87,13 +121,19 @@ function App() {
         />
       </header>
 
-      <ProductPage />
+      <ProductPage
+        imagesProduct={imagesProduct} //  Images Of Product
+        activeImg={activeImg} //  Active Image
+        setActiveImage={setActiveImage} //  Function For Set Active Image
+      />
 
       <SimilarProducts
         Products={Products} //  All Products Items
         addToCart={addToCart} // Function For Add items To Cart
         showSnackbar={showSnackbar} //  Function For Showing SnackBar After Adding In Cart
-        myCart={myCart}
+        myCart={myCart} //   My Cart Items From Above
+        AddToProductShow={AddToProductShow} //  Function For Showing SnackBar After Adding In Cart
+        // setActiveImage={setActiveImage} //  Function For Set Active Image
       />
 
       <Drawerr
@@ -101,10 +141,13 @@ function App() {
         open={open} // State of Drawerr
         myCart={myCart} //   My Cart Items From Above
         removeItem={removeItem} //  Function For Remov Item From Cart
-        quantity={quantity}
+        quantity={quantity} // Quantity Of Items In Cart
       />
 
-      <Snackbar showSnackbar={showSnackbar} show={show} />
+      <Snackbar
+        showSnackbar={showSnackbar} //  Function For Showing SnackBar After Adding In Cart
+        show={show} // State of SnackBar
+      />
 
       <Footer />
     </div>

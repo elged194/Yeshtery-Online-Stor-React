@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import "./Product Page.css";
 
-const ProductPage = () => {
-  const [images] = useState({
-    img1: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/3396ee3c-08cc-4ada-baa9-655af12e3120/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-    img2: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-    img3: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/44fc74b6-0553-4eef-a0cc-db4f815c9450/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-    img4: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/d3eb254d-0901-4158-956a-4610180545e5/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
-  });
-
-  const [activeImg, setActiveImage] = useState(images.img1);
+const ProductPage = ({ imagesProduct, setActiveImage, activeImg }) => {
+  // const [images] = useState({
+  //   img1: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/3396ee3c-08cc-4ada-baa9-655af12e3120/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
+  //   img2: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/e44d151a-e27a-4f7b-8650-68bc2e8cd37e/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
+  //   img3: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/44fc74b6-0553-4eef-a0cc-db4f815c9450/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
+  //   img4: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/d3eb254d-0901-4158-956a-4610180545e5/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
+  // });
 
   const [amount, setAmount] = useState(1);
   return (
@@ -19,28 +17,28 @@ const ProductPage = () => {
 
         <div className="img-items">
           <img
-            src={images.img1}
+            src={imagesProduct.img1}
             alt=""
             className=""
-            onClick={() => setActiveImage(images.img1)}
+            onClick={() => setActiveImage(imagesProduct.img1)}
           />
           <img
-            src={images.img2}
+            src={imagesProduct.img2}
             alt=""
             className=""
-            onClick={() => setActiveImage(images.img2)}
+            onClick={() => setActiveImage(imagesProduct.img2)}
           />
           <img
-            src={images.img3}
+            src={imagesProduct.img3}
             alt=""
             className=""
-            onClick={() => setActiveImage(images.img3)}
+            onClick={() => setActiveImage(imagesProduct.img3)}
           />
           <img
-            src={images.img4}
+            src={imagesProduct.img4}
             alt=""
             className=""
-            onClick={() => setActiveImage(images.img4)}
+            onClick={() => setActiveImage(imagesProduct.img4)}
           />
         </div>
       </div>
@@ -108,10 +106,11 @@ const ProductPage = () => {
           <div className="">
             <button
               className="prev-quantity"
-              onClick={() => {setAmount((prev) => prev - 1)
-              if(amount <= 0){
-                setAmount(0)
-              }
+              onClick={() => {
+                setAmount((prev) => prev - 1);
+                if (amount <= 0) {
+                  setAmount(0);
+                }
               }}
             >
               <i className="fa-solid fa-minus"></i>
