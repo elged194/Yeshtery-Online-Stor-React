@@ -8,11 +8,15 @@ import Snackbar from "./components/Snackbar Toast/Snackbar";
 import Footer from "./components/footer";
 
 function App() {
-  //  State for the drawer and product page visibility
+  // ------------------------------------ Open Drawerr ------------------------------------
+  const [open, setOpen] = useState(false); //  Drawerr Open  for Edit Item
+
+  //  Drawerr Open  for Edit Item
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
 
+  // ---------------------------------- Add To Cart ----------------------------------------------
   // array of products
   const Products = [
     {
@@ -67,18 +71,25 @@ function App() {
 
   const [myCart, setmyCart] = useState([]); //  cart is empty initially
 
-  // --------------------------------------------------------------------------------------
   let quantity = myCart.length; //  Quantity of items in cart
 
   //  Add to cart
-  const addToCart = (index) => {
-    // if (myCart.filter((item) => item.id !== id)) {
+  const addToCart = (index, id) => {
+    // if (myCart.filter((item) => item.id )!== id) {
     //   myCart.push(Products[index]);
     // }
 
-    myCart.push(Products[index]);
+    
+    if ( myCart === "" || myCart[index].id !== id ) {
+      console.log(true);
+     myCart.push(Products[index]);
+
+    }else{
+      return console.log(false);
+    }
   };
 
+  // --------------------------------- product to show img ---------------------------------
   const [imagesProduct, setimagesProduct] = useState(Products[0]); //  set the product to show
 
   const [activeImg, setActiveImage] = useState(imagesProduct.img); //  set the image to show
@@ -90,12 +101,13 @@ function App() {
     setActiveImage(Products[index].img); // set the image to show
   };
 
+  // ------------------------------------ Remove Item from Cart --------------------------
   //  Remove Item from Cart
   const removeItem = (id) => {
     setmyCart(myCart.filter((item) => item.id !== id));
   };
 
-  // ---------------
+  // ------------------------------------ Show SnackBar -----------------------------------
   const [show, setshow] = useState(""); //  Show SnackBar => Add to Cart
 
   //  Show SnackBar => Add to Cart
@@ -106,10 +118,7 @@ function App() {
       setshow("");
     }, 3000);
   };
-
   // ----------------------------------------------------------------------------
-
-  const [open, setOpen] = useState(false); //  Drawerr Open  for Edit Item
 
   return (
     <div className="App ">
@@ -133,7 +142,6 @@ function App() {
         showSnackbar={showSnackbar} //  Function For Showing SnackBar After Adding In Cart
         myCart={myCart} //   My Cart Items From Above
         AddToProductShow={AddToProductShow} //  Function For Showing SnackBar After Adding In Cart
-        // setActiveImage={setActiveImage} //  Function For Set Active Image
       />
 
       <Drawerr

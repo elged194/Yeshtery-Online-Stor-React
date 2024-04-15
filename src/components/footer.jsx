@@ -34,7 +34,7 @@ const Footer = () => {
               <input type="search" />
               <div className="send-footer">
                 Subscribe
-                <i class="fa-regular fa-paper-plane"></i>
+                <i className="fa-regular fa-paper-plane"></i>
               </div>
             </div>
 
@@ -53,10 +53,10 @@ const Footer = () => {
 
               <div className="col-6">
                 <ul className="list-footer-2">
-                  <li><i class="fa-brands fa-facebook"></i> /YESHTERY</li>
-                  <li><i class="fa-brands fa-linkedin"></i> /YESHTERY</li>
-                  <li><i class="fa-brands fa-instagram"></i> /YESHTERY</li>
-                  <li><i class="fa-brands fa-twitter"></i> /YESHTERY</li>
+                  <li><i className="fa-brands fa-facebook"></i> /YESHTERY</li>
+                  <li><i className="fa-brands fa-linkedin"></i> /YESHTERY</li>
+                  <li><i className="fa-brands fa-instagram"></i> /YESHTERY</li>
+                  <li><i className="fa-brands fa-twitter"></i> /YESHTERY</li>
                 </ul>
               </div>
             </div>
