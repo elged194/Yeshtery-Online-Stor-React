@@ -74,18 +74,11 @@ function App() {
   let quantity = myCart.length; //  Quantity of items in cart
 
   //  Add to cart
-  const addToCart = (index, id) => {
-    // if (myCart.filter((item) => item.id )!== id) {
-    //   myCart.push(Products[index]);
-    // }
-
-    
-    if ( myCart === "" || myCart[index].id !== id ) {
-      console.log(true);
-     myCart.push(Products[index]);
-
-    }else{
-      return console.log(false);
+  const addToCart = (index) => {
+      // myCart.push(Products[index]);
+    const productToAdd = Products[index];
+    if (!myCart.find(item => item.id === productToAdd.id)) {
+      setmyCart([...myCart, productToAdd]);
     }
   };
 
