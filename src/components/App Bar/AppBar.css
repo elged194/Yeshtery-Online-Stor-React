@@ -14,7 +14,8 @@ ul{
 /* ======================= 
    -- Header
 =========================*/
-header.app-bar{
+.app-bar{
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
