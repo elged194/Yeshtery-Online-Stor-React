@@ -1,7 +1,16 @@
 import { Box, Divider, Drawer, List, Typography } from "@mui/material";
 import "./Drawer.css";
+import { DeleteTwoTone } from "@mui/icons-material";
+import IconButton from "@mui/material/IconButton";
 
-const Drawerr = ({ toggleDrawer, open, myCart, removeItem }) => {
+const Drawerr = ({
+  toggleDrawer,
+  open,
+  myCart,
+  removeItem,
+  quantityItemPlus,
+  quantityItemMinus,
+}) => {
   let subTotal = 0; // Sub Totale
 
   const DrawerList = (
@@ -31,24 +40,45 @@ const Drawerr = ({ toggleDrawer, open, myCart, removeItem }) => {
 
       <List>
         {myCart.map((e) => {
-           subTotal += e.total
+          const totaleItems = Number(e.quantity) * Number(e.total);
+          subTotal += Number(totaleItems);
 
           return (
-            <div className="card cart p-1 mb-3">
+            <div className="card cart p-1 mb-3 shadow">
               <img src={e.img} alt="" style={{ width: "85px" }} />
 
               <div className="card-body p-0 ps-2">
-                <p>{e.discripshn}</p>
+                <div className="d-flex justify-content-between align-items-center p-1">
+                  <h5>{e.title}</h5>
+                  <h5 style={{ color: "#542E90", fontWeight: "bold" }}>
+                    {totaleItems.toFixed(2)} $
+                  </h5>
+                </div>
 
-                <p>
-                  <b>Quantity: 1</b>
-                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="">
+                    <button
+                      className="prev-quantity-cart"
+                      onClick={() => quantityItemMinus(e)}
+                    >
+                      <i className="fa-solid fa-minus"></i>
+                    </button>
 
-                <div className="total ">
-                  <h6 style={{ color: "#542E90" }}>{e.total} EL</h6>
-                  <button className="remove" onClick={() => removeItem(e.id)}>
-                    Remove
-                  </button>
+                    <span style={{ padding: "5px 10px", fontWeight: "bold" }}>
+                      {e.quantity}
+                    </span>
+
+                    <button
+                      className="prev-quantity-cart"
+                      onClick={() => quantityItemPlus(e)}
+                    >
+                      <i className="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+
+                  <IconButton onClick={() => removeItem(e.id)}>
+                    <DeleteTwoTone sx={{ fontSize: "25px" }} />
+                  </IconButton>
                 </div>
               </div>
             </div>
@@ -56,7 +86,7 @@ const Drawerr = ({ toggleDrawer, open, myCart, removeItem }) => {
         })}
 
         <div className="sub-totale">
-          <h5>Total: {subTotal} EL</h5>
+          <h5>Total: {subTotal.toFixed(2)} $</h5>
           <div>
             <button>Review Cart</button>
             <button style={{ backgroundColor: "#542E90", color: "#fff" }}>
@@ -70,7 +100,7 @@ const Drawerr = ({ toggleDrawer, open, myCart, removeItem }) => {
 
   return (
     <div>
-      <Drawer anchor={"right"} open={open} onClose={toggleDrawer(false) }  >
+      <Drawer anchor={"right"} open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
     </div>

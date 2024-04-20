@@ -14,19 +14,7 @@ padding: 5px;
 .close .fa-solid:hover{
     color: red;
 }
-.cart .total{
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-}
-.cart .total .remove{
-    border: none;
-    background-color: #FFF100;
-    padding: 0 8px;
-    border-radius: 9px;
-    font-size: 14px;
-    margin-right: 10px;
-}
+
 .sub-totale{
     text-align: center;
     margin: 10px 0;
@@ -45,4 +33,15 @@ padding: 5px;
     border-radius: 30px;
     font-weight: 500;
     margin-top: 10px;
+}
+
+.prev-quantity-cart{
+    padding: 0px 3px;
+    border-radius: 50px;
+    color: #474747;
+    border: 1px solid;
+    font-size: 12px;
+}
+.prev-quantity-cart .fa-solid{
+    font-style: 13px;
 }

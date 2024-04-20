@@ -22,8 +22,10 @@ function App() {
     {
       id: 1,
       img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022134/samples/Cart/Group_575_2x_ip8qqj.png",
+      title: "Women",
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
       total: 10.99,
+      quantity: 1,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
 
       img1: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022134/samples/Cart/Group_575_2x_ip8qqj.png",
@@ -34,8 +36,10 @@ function App() {
     {
       id: 2,
       img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_583_2x_f7cfz6.png",
+      title: "Women",
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
       total: 12.99,
+      quantity: 1,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
 
       img1: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_583_2x_f7cfz6.png",
@@ -46,8 +50,10 @@ function App() {
     {
       id: 3,
       img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022135/samples/Cart/Group_589_2x_udgubi.png",
+      title: "Mane",
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
       total: 9.99,
+      quantity: 1,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
 
       img1: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022135/samples/Cart/Group_589_2x_udgubi.png",
@@ -58,8 +64,10 @@ function App() {
     {
       id: 4,
       img: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_597_2x_sjmkzz.png",
+      title: "Women",
       discripshn: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
       total: 11.99,
+      quantity: 1,
       logo: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712066431/samples/Cart/Group_346_hjqn4z.png",
 
       img1: "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1712022132/samples/Cart/Group_597_2x_sjmkzz.png",
@@ -75,10 +83,52 @@ function App() {
 
   //  Add to cart
   const addToCart = (index) => {
-      // myCart.push(Products[index]);
     const productToAdd = Products[index];
-    if (!myCart.find(item => item.id === productToAdd.id)) {
-      setmyCart([...myCart, productToAdd]);
+    const existingItem = myCart.find((item) => item.id === productToAdd.id);
+    if (!existingItem) {
+      // If item does not exist, add it to the cart
+      setmyCart([...myCart, { ...productToAdd, quantity: 1 }]);
+    } else {
+      // If item exists, update its quantity
+      const updatedCart = myCart.map((item) => {
+        if (item.id === existingItem.id) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+      setmyCart(updatedCart);
+    }
+  };
+
+  // --------------------------------- quantityItem ---------------------------------
+
+  // Quantity Item Plus
+  const quantityItemPlus = (e) => {
+    const updatedCart = myCart.map((item) => {
+      if (item.id === e.id) {
+        return { ...item, quantity: item.quantity + 1 };
+      }
+      return item;
+    });
+
+    setmyCart(updatedCart);
+  };
+
+  // Quantity Item Minus
+  const quantityItemMinus = (e) => {
+    if (e.quantity > 1) {
+      const updatedCart = myCart.map((item) => {
+        if (item.id === e.id) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+        return item;
+      });
+
+      setmyCart(updatedCart);
+    } else {
+      setTimeout(() => {
+        setmyCart(myCart.filter((item) => item.id !== e.id)); //  Remove Item from Cart
+      }, 500);
     }
   };
 
@@ -97,7 +147,9 @@ function App() {
   // ------------------------------------ Remove Item from Cart --------------------------
   //  Remove Item from Cart
   const removeItem = (id) => {
-    setmyCart(myCart.filter((item) => item.id !== id));
+    setTimeout(() => {
+      setmyCart(myCart.filter((item) => item.id !== id));
+    }, 500);
   };
 
   // ------------------------------------ Show SnackBar -----------------------------------
@@ -143,6 +195,8 @@ function App() {
         myCart={myCart} //   My Cart Items From Above
         removeItem={removeItem} //  Function For Remov Item From Cart
         quantity={quantity} // Quantity Of Items In Cart
+        quantityItemPlus={quantityItemPlus} // Function For Add Quantity Of Items
+        quantityItemMinus={quantityItemMinus} // Function For Minus Quantity Of Items
       />
 
       <Snackbar

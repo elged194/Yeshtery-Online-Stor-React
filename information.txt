@@ -1,0 +1,8 @@
+  //  Add to cart
+  // const addToCart = (index) => {
+  //   // myCart.push(Products[index]);
+  //   const productToAdd = Products[index];
+  //   if (!myCart.find((item) => item.id === productToAdd.id)) {
+  //     setmyCart([...myCart, productToAdd]);
+  //   }
+  // };
